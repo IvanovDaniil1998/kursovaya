@@ -1,4 +1,4 @@
-п»ї#include "catalog.h"
+#include "catalog.h"
 #include "shop.h"
 #include "warehouse.h"
 
@@ -20,39 +20,40 @@ int main()
     WAREHOUSE *warehouse1;
 
     guide_catalog = new CATALOG;
-    shop1 = new SHOP("shop1.txt", "Р‘СѓРєРІРѕРµРґ");
-    shop2 = new SHOP("shop2.txt", "Р”РѕРј РєРЅРёРіРё");
-    shop3 = new SHOP("shop3.txt", "Р§РёС‚Р°Р№-РіРѕСЂРѕРґ");
+    shop1 = new SHOP("shop1.txt", "Обзор городов");
+    shop2 = new SHOP("shop2.txt", "Книжная страна");
+    shop3 = new SHOP("shop3.txt", "Путешественник");
     warehouse1 = new WAREHOUSE("warehouse.txt");
     shop1->set_next(shop2);
     shop2->set_next(shop3);
     shop3->set_next(warehouse1);
 
-    cout << "Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ! РќР° СЌС‚РѕРј СЃРµСЂРІРёСЃРµ СЃРѕР±СЂР°РЅС‹ РїСѓС‚РµРІРѕРґРёС‚РµР»Рё РїРѕ РЎР°РЅРєС‚-РџРµС‚РµСЂР±СѓСЂРіСѓ РёР· СЂР°Р·РЅС‹С… РјР°РіР°Р·РёРЅРѕРІ!" << endl << endl;
+    cout << "Приветствуем Вас в нашем интернет магазине путеводителей! Ознакьмьтесь с нашим каталогом!" << endl;
+    cout << "Если Вас что-то заинтересовало, вы можете сделать заказ прямо тут!" << endl << endl;
     guide_catalog->show();
-    cout << "Р’С‹ С…РѕС‚РёС‚Рµ СЃРґРµР»Р°С‚СЊ Р·Р°РєР°Р·? (Р”Р°/РќРµС‚)" << endl;
+    cout << "Вы хотите сделать заказ? (Да/Нет)" << endl;
     cin >> choise;
-    while (choise != "РќРµС‚" && choise != "РЅРµС‚")
+    while (choise != "Нет" && choise != "нет")
     {
-        cout << "\tРџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїСѓС‚РµРІРѕРґРёС‚РµР»СЏ, РєРѕС‚РѕСЂС‹Р№ РІР°СЃ Р·Р°РёРЅС‚РµСЂРµСЃРѕРІР°Р»: ";
+        cout << "\tВведите номер заинтересовавшего вас путеводителя: ";
         cin >> ch;
         if(ch > guide_catalog->get_amount())
         {
-            cout << "Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ, С‚Р°РєРѕРіРѕ С‚РѕРІР°СЂР° РЅРµС‚ РІ РєР°С‚Р°Р»РѕРіРµ." << endl;
+            cout << "К сожалению, такого товара нет в каталоге." << endl;
         }
         else
         {
-            cout << "\tР’С‹ РІС‹Р±СЂР°Р»Рё: " << guide_catalog->get_name(ch) << endl;
+            cout << "\tВы выбрали: " << guide_catalog->get_name(ch) << endl;
             temp = guide_catalog->get_vendor_code(ch);
             if(shop1->product_search(temp) == true)
             {
                 guide_catalog->purchased(ch);
-                cout << "\tР‘Р»Р°РіРѕРґР°СЂРёРј Р·Р° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РЅР°С€РµРіРѕ СЃРµСЂРІРёСЃР°." << endl;
+                cout << "\tБлагодарим за использование нашего сервиса." << endl;
             }
         }
-        cout << "РҐРѕС‚РёС‚Рµ Р·Р°РєР°Р·Р°С‚СЊ С‡С‚Рѕ-С‚Рѕ РµС‰С‘? (Р”Р°/РќРµС‚)" << endl;
+        cout << "Хотите заказать что-то ещё? (Да/Нет)" << endl;
         cin >> choise;
     }
-    cout << "Р”Рѕ СЃРІРёРґР°РЅРёСЏ!" << endl;
+    cout << "До свидания!" << endl;
     return 0;
 }
