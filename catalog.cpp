@@ -1,4 +1,4 @@
-﻿#include "catalog.h"
+#include "catalog.h"
 #include "guide.h"
 
 #include <cstdlib>

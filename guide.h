@@ -7,16 +7,16 @@ using namespace std;
 class GUIDE{
 private:
     string name;
-	string publishing_house; // издательство
+	string publishing_house; // РёР·РґР°С‚РµР»СЊСЃС‚РІРѕ
 	int year;
 	int num_pages;
 	bool illustrations;
 	bool city_map;
-	string binding; // переплёт
+	string binding; // РїРµСЂРµРїР»С‘С‚
 	string format;
 	string author;
-	int quantity; // количество в наличии всего
-	string vendor_code; // артикул
+	int quantity; // РєРѕР»РёС‡РµСЃС‚РІРѕ РІ РЅР°Р»РёС‡РёРё РІСЃРµРіРѕ
+	string vendor_code; // Р°СЂС‚РёРєСѓР»
 public:
     void set_name(string temp);
 	void set_publishing_house(string temp);
@@ -28,7 +28,7 @@ public:
 	void set_format(string temp);
 	void set_author(string temp);
 	void set_quantity(int temp);
-	void set_vendor_code(string temp); // артикул
+	void set_vendor_code(string temp); // Р°СЂС‚РёРєСѓР»
 
 	string get_name();
 	string get_publishing_house();

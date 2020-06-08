@@ -1,4 +1,4 @@
-﻿#include "institution.h"
+#include "institution.h"
 #include "warehouse.h"
 
 #include <string>
